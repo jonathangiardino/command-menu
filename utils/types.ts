@@ -1,8 +1,3 @@
-export interface CommandMenuProps {
-  open: boolean;
-  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
 export interface CommandItemProps {
   item: {
     text: string;

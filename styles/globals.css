@@ -20,14 +20,10 @@ body {
 
 /* cmdk custom styles */
 [cmdk-group-heading] {
+  display: flex;
   margin-left: 6px;
   padding: 6px;
   font-size: 12px;
   color: white;
   opacity: 0.5;
-}
-
-[cmdk-list] {
-  scroll-padding-block-start: 6px;
-  scroll-padding-block-end: 6px;
 }

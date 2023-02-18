@@ -10,8 +10,8 @@ const CommandItem = ({ item }: CommandItemProps) => {
     <Command.Item
       key={useId()}
       className={clsx(
-        "px-[14px] py-3 rounded-md group  flex items-center justify-between",
-        "aria-[selected]:bg-white/5"
+        "px-[14px] py-3 rounded-md group flex items-center justify-between",
+        "aria-[selected]:bg-white/5",
       )}
     >
       <div className="flex items-center gap-[17px]">
