@@ -3,13 +3,16 @@ import { CommandItemProps } from "@/utils/types";
 import { Command } from "cmdk";
 import clsx from "clsx";
 
-import Icon from "@/components/shared/Icon";
+import { Icon } from "@/components/shared";
 
 const CommandItem = ({ item }: CommandItemProps) => {
   return (
     <Command.Item
       key={useId()}
-      className="px-[14px] py-3 rounded-md group aria-[selected]:bg-white/5 flex items-center justify-between"
+      className={clsx(
+        "px-[14px] py-3 rounded-md group  flex items-center justify-between",
+        "aria-[selected]:bg-white/5"
+      )}
     >
       <div className="flex items-center gap-[17px]">
         <Icon

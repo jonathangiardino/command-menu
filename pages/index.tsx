@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import type { NextPage } from "next";
-import Head from "next/head";
 import { Inter } from "@next/font/google";
+import Head from "next/head";
 import clsx from "clsx";
 
 import { CommandMenu } from "@/components/command-menu";
+import { Rectangle } from "@/components/shared";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -44,29 +45,11 @@ const Home: NextPage = () => {
             Open command Menu ⌘K
           </button>
         ) : null}
-        <div
-          className={clsx(
-            "w-[264px] h-[251px] bg-green-80 absolute top-[105px] left-[100px] rounded-3xl"
-          )}
-        />
 
-        <div
-          className={clsx(
-            "w-[199px] h-[296px] bg-gray-80 absolute bottom-[105px] right-[240px] rounded-3xl"
-          )}
-        />
-
-        <div
-          className={clsx(
-            "w-[199px] h-[260px] bg-purple-60 absolute bottom-[55px] left-[280px] rounded-3xl"
-          )}
-        />
-
-        <div
-          className={clsx(
-            "w-[189px] h-[240px] bg-white absolute top-[55px] right-[250px] rounded-3xl"
-          )}
-        />
+        <Rectangle classNames="w-[189px] h-[256px] bg-white top-[85px] right-[220px]" />
+        <Rectangle classNames="w-[264px] h-[251px] bg-green-80 top-[105px] left-[100px]" />
+        <Rectangle classNames="w-[199px] h-[296px] bg-gray-80  bottom-[105px] right-[240px]" />
+        <Rectangle classNames="w-[199px] h-[260px] bg-purple-60  bottom-[55px] left-[280px]" />
 
         <CommandMenu open={openCommands} setOpen={setOpenCommands} />
       </main>

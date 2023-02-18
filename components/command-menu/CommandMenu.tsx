@@ -78,12 +78,12 @@ const CommandMenu = ({ open, setOpen }: CommandMenuProps) => {
         </Command.Empty>
         <Command.Group heading="">
           {menuItems.map((item) => (
-            <CommandItem item={item} />
+            <CommandItem key={useId()} item={item} />
           ))}
         </Command.Group>
         <Command.Group heading="Navigation">
           {navigationItems.map((item) => {
-            return <CommandItem item={item} />;
+            return <CommandItem key={useId()} item={item} />;
           })}
         </Command.Group>
       </Command.List>
