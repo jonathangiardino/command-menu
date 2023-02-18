@@ -41,7 +41,7 @@ const Home: NextPage = () => {
             )}
             onClick={() => setOpenCommands((prev) => !prev)}
           >
-            Command Menu ⌘K
+            Open command Menu ⌘K
           </button>
         ) : null}
         <div
