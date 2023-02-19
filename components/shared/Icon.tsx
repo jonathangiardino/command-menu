@@ -76,6 +76,54 @@ const Icon = ({ name, className }: IconProps) => {
         </svg>
       );
 
+    case "green":
+      return (
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle cx="8" cy="8" r="8" fill="#009772" />
+        </svg>
+      );
+
+    case "orange":
+      return (
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle cx="8" cy="8" r="8" fill="#FF8C00" />
+        </svg>
+      );
+
+    case "red":
+      return (
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle cx="8" cy="8" r="8" fill="#FF0000" />
+        </svg>
+      );
+
+    case "yellow":
+      return (
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle cx="8" cy="8" r="8" fill="#FFD700" />
+        </svg>
+      );
+
     default:
       return null;
   }

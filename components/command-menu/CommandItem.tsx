@@ -5,13 +5,16 @@ import clsx from "clsx";
 
 import { Icon } from "@/components/shared";
 
-const CommandItem = ({ item }: CommandItemProps) => {
+const CommandItem = (item: CommandItemProps) => {
+  const commandValue = item?.parent ? `${item.parent} ${item.text}` : item.text;
   return (
     <Command.Item
+      value={commandValue}
+      onSelect={item?.onSelect}
       key={useId()}
       className={clsx(
         "px-[14px] py-3 rounded-md group flex items-center justify-between",
-        "aria-[selected]:bg-white/5",
+        "aria-[selected]:bg-white/5"
       )}
     >
       <div className="flex items-center gap-[17px]">
@@ -23,6 +26,9 @@ const CommandItem = ({ item }: CommandItemProps) => {
           )}
         />
         {item.text}
+        {item?.parent ? (
+          <span className="text-white/30 text-sm">{item.parent}</span>
+        ) : null}
       </div>
       {item.command.length ? (
         <div className="flex gap-1 items-center">

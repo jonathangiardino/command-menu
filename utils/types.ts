@@ -1,9 +1,9 @@
 export interface CommandItemProps {
-  item: {
-    text: string;
-    command: Array<{ key: string } | string>;
-    icon: string;
-  };
+  text: string;
+  command: Array<{ key: string } | string>;
+  icon: string;
+  parent?: string;
+  onSelect?: () => void;
 }
 
 export interface IconProps {
