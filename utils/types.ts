@@ -27,5 +27,31 @@ export interface ToastProps {
   description?: React.ReactNode;
   textOnly?: boolean;
   open?: boolean;
-  setOpen?: React.Dispatch<React.SetStateAction<boolean>>;
+  setOpen?: (open: boolean) => void;
 }
+
+export enum ActionType {
+  SET_SEARCH = "SET_SEARCH",
+  SET_PAGES = "SET_PAGES",
+  SET_TOAST = "SET_TOAST",
+  SET_TOAST_VISIBLE = "SET_TOAST_VISIBLE",
+  SET_SEQUENCE = "SET_SEQUENCE",
+}
+
+export type CommandAction = {
+  type: ActionType;
+  payload?: any;
+};
+
+export type CommandStateType = {
+  search: string;
+  pages: string[];
+  toast: string;
+  toastVisible: boolean;
+  sequence: string;
+  setSearch: (search: string) => void;
+  setPages: (pages: string[]) => void;
+  setToast: (toast: string) => void;
+  setToastVisible: (toastVisible: boolean) => void;
+  setSequence: (sequence: string) => void;
+};

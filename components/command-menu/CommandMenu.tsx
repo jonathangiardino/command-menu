@@ -1,18 +1,28 @@
-import React, { Fragment, useEffect, useRef, useState } from "react";
+import { Fragment, KeyboardEvent, useContext, useEffect, useRef } from "react";
 import { Command } from "cmdk";
+import { useHotkeys } from "react-hotkeys-hook";
 import clsx from "clsx";
 
+import { CommandContext } from "@/context";
 import { copyToClipboard, filterWords } from "@/utils";
-import CommandItem from "@/components/command-menu/CommandItem";
 import { Toast } from "@/components/shared";
+import CommandItem from "@/components/command-menu/CommandItem";
 
 const CommandMenu = () => {
-  const [search, setSearch] = useState<string>("");
-  const [pages, setPages] = useState<string[]>([]);
-  const [toast, setToast] = useState<string>("");
-  const [toastVisible, setToastVisible] = useState<boolean>(false);
-  const inputRef = useRef<HTMLInputElement>(null);
+  const {
+    search,
+    setSearch,
+    pages,
+    setPages,
+    toast,
+    setToast,
+    toastVisible,
+    setToastVisible,
+    sequence,
+    setSequence,
+  } = useContext(CommandContext);
 
+  const inputRef = useRef<HTMLInputElement>(null);
   const page = pages[pages.length - 1];
 
   const handleFilter = (value: string, search: string) => {
@@ -27,7 +37,11 @@ const CommandMenu = () => {
     setPages(pages.slice(0, pages.length - 1));
   };
 
-  useEffect(() => inputRef?.current?.focus(), []);
+  const resetMenu = (e: KeyboardEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    setSearch("");
+    setPages([]);
+  };
 
   const menuItems = [
     {
@@ -113,6 +127,93 @@ const CommandMenu = () => {
     },
   ];
 
+  // KEYBOARD SHORTCUTS
+  // Single key shortcuts
+  useHotkeys("d,m,y", (context) => {
+    switch (true) {
+      case context.key === "d":
+        navigationItems[0].onSelect();
+        break;
+      case context.key === "m":
+        navigationItems[1].onSelect();
+        break;
+      case context.key === "y":
+        navigationItems[2].onSelect();
+        break;
+
+      default:
+        break;
+    }
+  });
+
+  // Combinations key shortcuts
+  useHotkeys(
+    "meta+c, meta+backspace,meta+1,meta+2,meta+3,meta+4",
+    (context) => {
+      const { key, metaKey } = context;
+      const isColorPage = page === "Change color of event";
+      switch (true) {
+        case metaKey && key === "c":
+          menuItems[1].onSelect();
+          break;
+        case metaKey && key === "Backspace":
+          menuItems[3].onSelect();
+          break;
+        case metaKey && key === "1" && isColorPage:
+          colorItems[0].onSelect();
+          break;
+        case metaKey && key === "2" && isColorPage:
+          colorItems[1].onSelect();
+          break;
+        case metaKey && key === "3" && isColorPage:
+          colorItems[2].onSelect();
+          break;
+        case metaKey && key === "4" && isColorPage:
+          colorItems[3].onSelect();
+          break;
+        default:
+          break;
+      }
+    },
+    {
+      preventDefault: true,
+      enableOnFormTags: true,
+    }
+  );
+
+  // Sequential key shortcuts
+  useHotkeys("e, c", (context) => {
+    const { key } = context;
+    switch (true) {
+      case key === "e":
+        if (sequence === "e") {
+          menuItems[0].onSelect();
+          setSequence("");
+        } else {
+          setSequence("e");
+          setTimeout(() => {
+            setSequence("");
+          }, 3000);
+        }
+        break;
+
+      case key === "c":
+        if (sequence === "e" && page !== "Change color of event") {
+          menuItems[2].onSelect();
+          setSequence("");
+          setTimeout(() => {
+            inputRef?.current?.focus();
+          }, 300);
+        }
+        break;
+
+      default:
+        break;
+    }
+  });
+
+  useEffect(() => inputRef?.current?.focus(), []);
+
   return (
     <>
       <Command
@@ -124,13 +225,10 @@ const CommandMenu = () => {
           "md:max-w-[641px]"
         )}
         onKeyDown={(e) => {
-          if (
-            (e.key === "Escape" || e.key === "Backspace") &&
-            !search &&
-            !e.metaKey
-          ) {
-            e.preventDefault();
-            setPages((pages) => pages.slice(0, -1));
+          const escOrDelete =
+            e.key === "Escape" || (e.key === "Backspace" && !search);
+          if (escOrDelete && !e.metaKey) {
+            resetMenu(e);
           }
         }}
       >
@@ -157,7 +255,7 @@ const CommandMenu = () => {
                   "text-[8px] flex items-center justify-center px-1 py-[2px] bg-white/5 text-white/75 rounded-[4px]"
                 )}
               >
-                ESC
+                esc
               </span>
             </div>
           ) : null}
