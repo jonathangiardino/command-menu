@@ -11,7 +11,6 @@ const CommandItem = (item: CommandItemProps) => {
     <Command.Item
       value={commandValue}
       onSelect={item?.onSelect}
-      key={useId()}
       className={clsx(
         "px-[14px] py-3 rounded-md group flex items-center justify-between",
         "aria-[selected]:bg-white/5"

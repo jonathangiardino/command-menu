@@ -8,3 +8,7 @@ export const filterWords = (words: string[], search: string) => {
 
   return 0;
 };
+
+export const copyToClipboard = (text: string) => {
+  navigator.clipboard.writeText(text);
+};
