@@ -11,7 +11,7 @@ For a live preview, visit [rise-command-menu.vercel.app](https://rise-command-me
 
 #### Useful info
 
-Keyboard shortcuts with single keystrokes and sequential keystrokes (e.g "d" or "e then e") are available when the input is unfocused, while combinations like ⌘⌫ or ⌘C are available also when the input is focused as they do not interrupt the typing while the input is focused.
+Keyboard shortcuts with single keystrokes and sequential keystrokes (e.g "`d`" or "`e` then `e`") are available only when the input is unfocused, while combinations like `⌘⌫` or `⌘C` are available also when the input is focused as they do not overlap with the typing.
 
 #### Stack used foir this project
 
