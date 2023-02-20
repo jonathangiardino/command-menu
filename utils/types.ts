@@ -1,3 +1,26 @@
+export type SwipeDirection = "left" | "right" | "up" | "down";
+
+export type Position =
+  | "top-left"
+  | "top-right"
+  | "bottom-left"
+  | "bottom-right"
+  | "top"
+  | "bottom";
+
+export type CommandAction = {
+  type: ActionType;
+  payload?: any;
+};
+
+export enum ActionType {
+  SET_SEARCH = "SET_SEARCH",
+  SET_PAGES = "SET_PAGES",
+  SET_TOAST = "SET_TOAST",
+  SET_TOAST_VISIBLE = "SET_TOAST_VISIBLE",
+  SET_SEQUENCE = "SET_SEQUENCE",
+}
+
 export interface CommandItemProps {
   text: string;
   command: Array<{ key: string } | string>;
@@ -11,15 +34,6 @@ export interface IconProps {
   className?: string;
 }
 
-export type SwipeDirection = "left" | "right" | "up" | "down";
-
-export type Position =
-  | "top-left"
-  | "top-right"
-  | "bottom-left"
-  | "bottom-right"
-  | "top"
-  | "bottom";
 export interface ToastProps {
   position?: Position;
   duration?: number;
@@ -30,20 +44,7 @@ export interface ToastProps {
   setOpen?: (open: boolean) => void;
 }
 
-export enum ActionType {
-  SET_SEARCH = "SET_SEARCH",
-  SET_PAGES = "SET_PAGES",
-  SET_TOAST = "SET_TOAST",
-  SET_TOAST_VISIBLE = "SET_TOAST_VISIBLE",
-  SET_SEQUENCE = "SET_SEQUENCE",
-}
-
-export type CommandAction = {
-  type: ActionType;
-  payload?: any;
-};
-
-export type CommandStateType = {
+export interface CommandStateType {
   search: string;
   pages: string[];
   toast: string;
@@ -54,4 +55,4 @@ export type CommandStateType = {
   setToast: (toast: string) => void;
   setToastVisible: (toastVisible: boolean) => void;
   setSequence: (sequence: string) => void;
-};
+}

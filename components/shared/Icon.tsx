@@ -1,5 +1,5 @@
 import React from "react";
-import { IconProps } from "../../utils/types";
+import { IconProps } from "@/utils/types";
 
 const Icon = ({ name, className }: IconProps) => {
   switch (name) {

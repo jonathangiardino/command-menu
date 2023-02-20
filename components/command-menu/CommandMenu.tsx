@@ -255,7 +255,7 @@ const CommandMenu = () => {
                   "text-[8px] flex items-center justify-center px-1 py-[2px] bg-white/5 text-white/75 rounded-[4px]"
                 )}
               >
-                esc
+                Esc
               </span>
             </div>
           ) : null}

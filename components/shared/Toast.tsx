@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import * as RadixToast from "@radix-ui/react-toast";
 import clsx from "clsx";
 import { twMerge } from "tailwind-merge";
+import * as RadixToast from "@radix-ui/react-toast";
+
 import { SwipeDirection, ToastProps } from "@/utils/types";
 
 const Toast = ({
@@ -69,7 +70,7 @@ const Toast = ({
       <RadixToast.Viewport
         className={twMerge(
           clsx(
-            "fixed flex flex-col min-w-[150px] z-50",
+            "fixed flex flex-col z-50",
             { "top-3 left-3": position === "top-left" },
             { "top-3 right-3": position === "top-right" },
             { "bottom-3 left-3": position === "bottom-left" },

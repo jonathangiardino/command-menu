@@ -1,4 +1,4 @@
-import { useReducer, createContext, FC, ReactNode } from "react";
+import { useReducer, createContext, ReactNode } from "react";
 import { ActionType, CommandAction, CommandStateType } from "@/utils/types";
 
 const initialState: CommandStateType = {
@@ -60,22 +60,21 @@ function reducer(
 
 const CommandProvider = ({ children }: { children: ReactNode }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
+  const { search, pages, toast, toastVisible, sequence } = state;
+  const { SET_SEARCH, SET_PAGES, SET_TOAST, SET_TOAST_VISIBLE, SET_SEQUENCE } =
+    ActionType;
 
   const value = {
-    search: state.search,
-    pages: state.pages,
-    toast: state.toast,
-    toastVisible: state.toastVisible,
-    sequence: state.sequence,
-    setSearch: (search: string) =>
-      dispatch({ type: ActionType.SET_SEARCH, payload: search }),
-    setPages: (pages: string[]) =>
-      dispatch({ type: ActionType.SET_PAGES, payload: pages }),
-    setToast: (toast: string) =>
-      dispatch({ type: ActionType.SET_TOAST, payload: toast }),
-    setToastVisible: () => dispatch({ type: ActionType.SET_TOAST_VISIBLE }),
-    setSequence: (sequence: string) =>
-      dispatch({ type: ActionType.SET_SEQUENCE, payload: sequence }),
+    search,
+    pages,
+    toast,
+    toastVisible,
+    sequence,
+    setSearch: (payload: string) => dispatch({ type: SET_SEARCH, payload }),
+    setPages: (payload: string[]) => dispatch({ type: SET_PAGES, payload }),
+    setToast: (payload: string) => dispatch({ type: SET_TOAST, payload }),
+    setToastVisible: () => dispatch({ type: SET_TOAST_VISIBLE }),
+    setSequence: (payload: string) => dispatch({ type: SET_SEQUENCE, payload }),
   };
 
   return (

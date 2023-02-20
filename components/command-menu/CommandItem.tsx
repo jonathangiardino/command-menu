@@ -1,8 +1,8 @@
 import { useId } from "react";
-import { CommandItemProps } from "@/utils/types";
 import { Command } from "cmdk";
 import clsx from "clsx";
 
+import { CommandItemProps } from "@/utils/types";
 import { Icon } from "@/components/shared";
 
 const CommandItem = (item: CommandItemProps) => {
@@ -31,21 +31,19 @@ const CommandItem = (item: CommandItemProps) => {
       </div>
       {item.command.length ? (
         <div className="flex gap-1 items-center">
-          {item.command.map((item) => {
-            return (
-              <span
-                key={useId()}
-                className={clsx(
-                  "text-[11px] flex items-center justify-center",
-                  typeof item === "string"
-                    ? "text-white/50"
-                    : "w-5 h-5 bg-white/5 text-white/75 rounded-[4px] "
-                )}
-              >
-                {typeof item === "string" ? item : item.key}
-              </span>
-            );
-          })}
+          {item.command.map((item) => (
+            <span
+              key={useId()}
+              className={clsx(
+                "text-[11px] flex items-center justify-center",
+                typeof item === "string"
+                  ? "text-white/50"
+                  : "w-5 h-5 bg-white/5 text-white/75 rounded-[4px] "
+              )}
+            >
+              {typeof item === "string" ? item : item.key}
+            </span>
+          ))}
         </div>
       ) : null}
     </Command.Item>
