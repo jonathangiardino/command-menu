@@ -20,4 +20,5 @@ Keyboard shortcuts with single keystrokes and sequential keystrokes (e.g "d" or 
 - [cmdk](https://cmdk.paco.me/)
 - [@radix-ui/react-toast](https://www.radix-ui.com/docs/primitives/components/toast)
 - [react-hotkeys-hook](https://react-hotkeys-hook.vercel.app/docs)
+- [clsx](https://www.npmjs.com/package/clsx)
 - [tailwind-merge](https://www.npmjs.com/package/tailwind-merge) - Thanks [Dany](https://github.com/dcastil) :)
