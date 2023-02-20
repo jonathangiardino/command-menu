@@ -5,7 +5,7 @@
 To run this locally:
 
 - Clone the repo
-- `npm install && npm run`
+- `npm install && npm run dev`
 
 For a live preview, visit [rise-command-menu.vercel.app](https://rise-command-menu.vercel.app/)
 
