@@ -151,7 +151,7 @@ const CommandMenu = () => {
     "meta+c, meta+backspace,meta+1,meta+2,meta+3,meta+4",
     (context) => {
       const { key, metaKey } = context;
-      const isColorPage = page === "Change color of event";
+
       switch (true) {
         case metaKey && key === "c":
           menuItems[1].onSelect();
@@ -159,16 +159,16 @@ const CommandMenu = () => {
         case metaKey && key === "Backspace":
           menuItems[3].onSelect();
           break;
-        case metaKey && key === "1" && isColorPage:
+        case metaKey && key === "1":
           colorItems[0].onSelect();
           break;
-        case metaKey && key === "2" && isColorPage:
+        case metaKey && key === "2":
           colorItems[1].onSelect();
           break;
-        case metaKey && key === "3" && isColorPage:
+        case metaKey && key === "3":
           colorItems[2].onSelect();
           break;
-        case metaKey && key === "4" && isColorPage:
+        case metaKey && key === "4":
           colorItems[3].onSelect();
           break;
         default:
@@ -200,9 +200,9 @@ const CommandMenu = () => {
       case key === "c":
         if (sequence === "e" && page !== "Change color of event") {
           menuItems[2].onSelect();
-          setSequence("");
           setTimeout(() => {
             inputRef?.current?.focus();
+            setSequence("");
           }, 300);
         }
         break;

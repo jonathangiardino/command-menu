@@ -1,27 +1,23 @@
-# Next.js + Tailwind CSS Example
+### Command Menu UI
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.2)](https://tailwindcss.com/blog/tailwindcss-v3-2) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+![Project's screenshot](public/screenshot.png "Command Menu")
 
-## Deploy your own
+To run this locally:
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
+- Clone the repo
+- `npm install && npm run`
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
+For a live preview, visit [rise-command-menu.vercel.app](https://rise-command-menu.vercel.app/)
 
-## How to use
+#### Useful info
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+Keyboard shortcuts with single keystrokes and sequential keystrokes (e.g "d" or "e then e") are available when the input is unfocused, while combinations like ⌘⌫ or ⌘C are available also when the input is focused as they do not interrupt the typing while the input is focused.
 
-```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-```
+#### Stack used foir this project
 
-```bash
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
-```
-
-```bash
-pnpm create next-app --example with-tailwindcss with-tailwindcss-app
-```
-
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+- [Next.js](https://nextjs.org/docs/getting-started)
+- [TailwindCSS](https://tailwindcss.com/docs/installation)
+- [cmdk](https://cmdk.paco.me/)
+- [@radix-ui/react-toast](https://www.radix-ui.com/docs/primitives/components/toast)
+- [react-hotkeys-hook](https://react-hotkeys-hook.vercel.app/docs)
+- [tailwind-merge](https://www.npmjs.com/package/tailwind-merge) - Thanks [Dany](https://github.com/dcastil) :)

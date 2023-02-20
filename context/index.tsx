@@ -48,9 +48,7 @@ function reducer(
     case "SET_SEQUENCE":
       return {
         ...state,
-        sequence: state?.sequence
-          ? state.sequence + action.payload
-          : action.payload,
+        sequence: action.payload,
       };
 
     default:
